@@ -12,6 +12,8 @@ import java.awt.Dimension;
  * @author James Burris
  */
 public class Formulario extends javax.swing.JFrame {
+    
+    public static Articulo Articulo = new Articulo();
 
     /**
      * Creates new form Formulario

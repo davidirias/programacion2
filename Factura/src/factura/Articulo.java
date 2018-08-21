@@ -144,6 +144,31 @@ public class Articulo {
     public void setPrecioProducto(float precioProducto) {   
         this.precioProducto = precioProducto;
     }
+    
+    public Object [][] arregloArticulo (){
+        Object [][] data = new Object[this.arrayListArticulo.size()][5];
+        for (int i = 0; i<this.arrayListArticulo.size();i++){
+            data[i][0] = this.arrayListArticulo.get(i).getCodigoProducto();
+            data[i][1] = this.arrayListArticulo.get(i).getNombreProducto();
+            data[i][2] = this.arrayListArticulo.get(i).getDescripcionProducto();
+            data[i][3] = this.arrayListArticulo.get(i).getPrecioProducto();
+            data[i][4] = this.arrayListArticulo.get(i).getCantidadProducto();
+        }
+        return data;
+    }
+    
+    public Object [][] arregloVenta (){
+        Object [][] data = new Object[this.arraySubTotalArticulo.size()][6];
+        for (int i = 0; i<this.arraySubTotalArticulo.size();i++){
+            data[i][0] = this.arraySubTotalArticulo.get(i).getSubCodigoProducto();
+            data[i][1] = this.arraySubTotalArticulo.get(i).getSubNombreProducto();
+            data[i][2] = this.arraySubTotalArticulo.get(i).getSubDescripcionProducto();
+            data[i][3] = this.arraySubTotalArticulo.get(i).getSubPrecioProducto();
+            data[i][4] = this.arraySubTotalArticulo.get(i).getSubCantidadProducto();
+            data[i][5] = this.arraySubTotalArticulo.get(i).getSubTotal();
+        }
+        return data;
+    }
 
     //Método toString para imprimir la información.
     @Override
@@ -208,11 +233,14 @@ public class Articulo {
     public Articulo buscar_producto_objeto(int codigo) {
         Articulo productoEncontrado = null;
         for (int i = 0; i < this.arrayListArticulo.size(); i++) {
+            System.out.println(this.arrayListArticulo.get(i).getCodigoProducto());
             if (codigo == this.arrayListArticulo.get(i).getCodigoProducto()) {
+                
                 productoEncontrado = this.arrayListArticulo.get(i);
                 break;
             }
         }
+        
         return productoEncontrado;
     }
 
